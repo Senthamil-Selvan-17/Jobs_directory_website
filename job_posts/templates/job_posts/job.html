@@ -1,0 +1,16 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{job.title}}</h1>
+    <p>{{job.com_description}}</p>
+    <p>{{job.job_description}}</p>
+    {% for key, value in job.job_details.items %}
+        <p><b>{{key}} :</b> {{value}}</p>
+    {% endfor %}
+    <a href="{{job.link}}"><h2><b>Apply link</b></h2></a>
+</body>
+</html>
