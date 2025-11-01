@@ -2,15 +2,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Job description</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-    <h1>{{job.title}}</h1>
-    <p>{{job.com_description}}</p>
-    <p>{{job.job_description}}</p>
-    {% for key, value in job.job_details.items %}
-        <p><b>{{key}} :</b> {{value}}</p>
-    {% endfor %}
-    <a href="{{job.link}}"><h2><b>Apply link</b></h2></a>
+    <nav class="navbar navbar-expand-lg mb-5" style="background-color: #4262a7;;" data-bs-theme="light">
+        <div class="container mb-4">
+            <a class="navbar-brand ps-1" href="#" style="font-size: 40px; color: white;"><b>Job Openings</b></a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class= 'col-9'>
+                <h1>{{job.title}}</h1>
+                <img src="{{job.logo.url}}" alt="{{job.title}}" style="max-height: 340px; width:auto;">
+                <p>{{job.com_description}}</p>
+                <p>{{job.job_description}}</p>
+                {% for key, value in job.job_details.items %}
+                <p><b>{{key}} :</b> {{value}}</p>
+                {% endfor %}
+                <a href="{{job.link}}"><h2><b>Apply link</b></h2></a>
+            </div>
+            <div class="col-2">
+                <ul>
+                    {% for sin_job in jobs %}
+                    <li><a href="{% url 'job' sin_job.title %}" target="_self">{{sin_job}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
