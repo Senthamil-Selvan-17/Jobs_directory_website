@@ -8,9 +8,9 @@ def index(request):
         'jobs':jobs
     })
 
-def job(request, title):
+def job(request, slug):
     jobs = Job.objects.all()
-    job = Job.objects.get(title = title)
+    job = Job.objects.get(slug = slug)
     return render(request, 'job_posts/job.html',{
         'job': job, 'jobs':jobs
     })

@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path("<str:title>", views.job, name='job')
+    path("<slug:slug>/", views.job, name='job')
 ]
